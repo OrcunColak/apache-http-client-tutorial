@@ -1,4 +1,4 @@
-package com.colak;
+package com.colak.get;
 
 
 import lombok.extern.slf4j.Slf4j;
@@ -15,7 +15,9 @@ public class HttpClientGetExample {
         // Create a CloseableHttpClient instance
         try (CloseableHttpClient httpClient = HttpClients.createDefault()) {
             // Create a HttpGet request
-            httpClient.execute(new HttpGet("https://www.google.com"),
+            HttpGet request = new HttpGet("https://www.google.com");
+
+            httpClient.execute(request,
                     response -> {
 
                         log.info("Response code : {}", response.getCode());
